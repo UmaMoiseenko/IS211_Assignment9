@@ -1,13 +1,10 @@
 from bs4 import BeautifulSoup
 from urllib2 import urlopen
 
-
 soup = BeautifulSoup (urlopen("http://www.wunderground.com/history/airport/KNYC/2015/4/8/MonthlyCalendar.html"))
-calendar = soup.findAll('td', attrs={'class': 'day'});
-counter = 0
+calendar = soup.finAll('td', attrs={'class': 'day'});
 
 for day in calendar:
-	counter +=1
 
 	day_num = day.findAll('a', attrs={'class': 'dateText'})[0].contents[0]
 	title = day.findAll('td', attrs={'class': 'value-header'})[0].contents[0]
